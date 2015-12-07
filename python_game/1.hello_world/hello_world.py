@@ -4,7 +4,7 @@
 '''
 #!/usr/bin/env python
 
-background_image_filename = '1.jpg'
+background_image_filename = '1.1.jpg'
 mouse_image_filename = '2.jpg'
 #制定图像文件名称
 
@@ -16,7 +16,7 @@ from sys import exit
 pygame.init()
 #初始化pygame、
 
-screen = pygame.display.set_mode((640,480),0,32)
+screen = pygame.display.set_mode((1280,800),RESIZABLE,32)
 #创建一个窗口,并且制定大小。
 
 pygame.display.set_caption("hello, world! ly first game!")
