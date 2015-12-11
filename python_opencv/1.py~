@@ -16,7 +16,7 @@ while True:
     #视频中的图片一张张写入
     video.write(img)
     cv2.imshow('Video',img)
-    key=cv2.waitKey(3)#里面数字为delay时间，如果大于0为刷新时间，
+    key=cv2.waitKey(1)#里面数字为delay时间，如果大于0为刷新时间，
     #超过指定时间则返回-1，等于0没有返回值,但也可以读取键盘数值，
     cv2.imwrite('%s.jpg'%(str(num)),img)
     num=num+1
