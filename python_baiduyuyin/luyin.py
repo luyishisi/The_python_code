@@ -51,7 +51,8 @@ def record_wave():
     count += 1
     print '.'
 
-  filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")+".wav"
+  #filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")+".wav"
+  filename = "1.wav"
   save_wave_file(filename, save_buffer)
   save_buffer = []
   print filename, "saved"
