@@ -1,0 +1,87 @@
+<aiml version="1.0.1" encoding="UTF-8">
+<!-- basic_chat.aiml -->
+ 
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            Well, hello!
+        </template>
+    </category>
+    
+    <category>
+        <pattern>YOU ARE *</pattern>
+        <template>
+            my name is <set name="rebot_name2"><star/></set>!
+        </template>
+    </category>
+
+    <category>
+        <pattern>你好</pattern>
+        <template>
+            你好啊！ 
+        </template>
+    </category>
+
+    <category>
+        <pattern>我叫你 *</pattern>
+        <template>
+            可以啊，我以后就叫<set name="rebot_name1"><star/></set>
+        </template>
+    </category>
+    <category>
+        <pattern>WHAT ARE YOU</pattern>
+        <template>
+            I'm a bot, silly!
+        </template>
+    </category>
+    <category>
+    <pattern>ONE TIME I *</pattern>
+    <template>
+        <random>
+            <li>Go on.</li>
+            <li>How old are you?</li>
+            <li>Be more specific.</li>
+            <li>I did not know that.</li>
+            <li>Are you telling the truth?</li>
+            <li>I don't know what that means.</li>
+            <li>Try to tell me that another way.</li>
+            <li>Are you talking about an animal, vegetable or mineral?</li>
+            <li>What is it?</li>
+        </random>
+    </template>
+    </category>
+
+    <category>
+      <pattern>WHATS YOUR NAME *</pattern>
+      <template>
+         my name is rebot
+      </template>
+    </category>
+
+    <category>
+      <pattern>MY DOG NAME IS *</pattern>
+      <template>
+         That is interesting that you have a dog named <set name="dog"><star/></set>
+      </template>
+    </category>
+    <category>
+      <pattern>WHAT IS MY DOG NAME</pattern>
+      <template>
+         Your dog's name is <get name="dog"/>.
+      </template>
+    </category>
+
+    <category>
+      <pattern>MY NAME IS *</pattern>
+      <template>
+         I got you name <set name="clientName"><star/></set>
+      </template>
+    </category>
+    <category>
+      <pattern>WHAT IS MY NAME</pattern>
+      <template>
+         Your name is <get name="clientName"/>.
+      </template>
+    </category>
+ 
+</aiml>
