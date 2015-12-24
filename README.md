@@ -1,1 +1,3 @@
-# The_crawler_python
+记录下python学习过程中陆陆续续做的小项目，具体的实现均在各个文件夹内部有
+说明，如有疑问请查阅博客
+urlteam.org

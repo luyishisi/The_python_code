@@ -23,7 +23,7 @@ else:
                 
 # 初始化视频流的第一帧
 firstFrame = None
-
+k = 0
 # 遍历视频的每一帧
 while True:
     # 获取当前帧并初始化occupied/unoccupied文本
@@ -70,8 +70,16 @@ while True:
         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
     cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
         (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
- 
-   # 显示当前帧并记录用户是否按下按键
+    
+    s = time.ctime()    
+    miao = s[17:19:1]
+    int_miao = int(miao)
+    if int_miao%10 == 5|| int_miao%10==0:
+        print (miao)
+        time.sleep(1)
+        continue
+
+    #显示当前帧并记录用户是否按下按键
     cv2.imshow("Security Feed", frame)
     cv2.imshow("Thresh", thresh)
     cv2.imshow("Frame Delta", frameDelta)
@@ -80,7 +88,6 @@ while True:
     # 如果q键被按下，跳出循环
     if key == ord("q"):
         break
- 
 # 清理摄像机资源并关闭打开的窗口
 camera.release()
 cv2.destroyAllWindows()
