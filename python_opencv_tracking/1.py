@@ -74,7 +74,7 @@ while True:
     s = time.ctime()    
     miao = s[17:19:1]
     int_miao = int(miao)
-    if int_miao%10 == 5|| int_miao%10==0:
+    if int_miao%10 == 5:
         print (miao)
         time.sleep(1)
         continue
