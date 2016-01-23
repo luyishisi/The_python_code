@@ -1,0 +1,55 @@
+<aiml version="1.0.1" encoding="UTF-8">
+    <!-- std-startup.xml -->
+
+    <!-- <category> 作为AIML的原子级单元 -->
+    <category>
+
+        <!-- 匹配用户输入的模式 -->
+        <!-- 如果用户输入 "LOAD B" -->
+        <pattern>LOAD AIML PATTERN</pattern>
+
+        <!-- <Template> 用来响应模式 -->
+        <!-- <learn>是一个aiml文件 -->
+        <template>
+            <learn>test_chat.aiml</learn>
+            <!-- 在这下面你能添加更多的aiml文件 -->
+            <learn>../aiml/std-65percent.aiml</learn>
+            <learn>../aiml/std-dictionary.aiml</learn>
+            <learn>../aiml/std-geography.aiml</learn>
+            <learn>../aiml/std-inventions.aiml</learn>
+            <learn>../aiml/std-personality.aiml</learn>
+            <learn>../aiml/std-robot.aiml</learn>
+            <learn>../aiml/std-suffixes.aiml</learn>
+            <learn>../aiml/std-atomic.aiml</learn>
+            <learn>../aiml/std-disconnect.aiml</learn>
+            <learn>../aiml/std-german.aiml</learn>
+            <learn>../aiml/std-knowledge.aiml</learn>
+            <learn>../aiml/std-pickup.aiml</learn>
+            <learn>../aiml/std-sales.aiml</learn>
+            <learn>../aiml/std-that.aiml</learn>
+            <learn>../aiml/std-botmaster.aiml</learn>
+            <learn>../aiml/std-dont.aiml</learn>
+            <learn>../aiml/std-gossip.aiml</learn>
+            <learn>../aiml/std-lizards.aiml</learn>
+            <learn>../aiml/std-politics.aiml</learn>
+            <learn>../aiml/std-sextalk.aiml</learn>
+            <learn>../aiml/std-turing.aiml</learn>
+            <learn>../aiml/std-brain.aiml</learn>
+            <learn>../aiml/std-errors.aiml</learn>
+            <learn>../aiml/std-hello.aiml</learn>
+            <learn>../aiml/std-login.aiml</learn>
+            <learn>../aiml/std-profile.aiml</learn>
+            <learn>../aiml/std-sports.aiml</learn>
+            <learn>../aiml/std-yesno.aiml</learn>
+            <learn>../aiml/std-connect.aiml</learn>
+            <learn>../aiml/std-gender.aiml</learn>
+            <learn>../aiml/std-inactivity.aiml</learn>
+            <learn>../aiml/std-numbers.aiml</learn>
+            <learn>../aiml/std-religion.aiml</learn>
+            <learn>../aiml/std-srai.aiml</learn>
+
+        </template>
+
+    </category>
+
+</aiml>

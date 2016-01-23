@@ -1,0 +1,45 @@
+#coding:utf-8
+# 导入必要的软件包
+import argparse
+import datetime
+import imutils
+import time
+import cv2
+ 
+# 创建参数解析器并解析参数
+ap = argparse.ArgumentParser()
+ap.add_argument("-v", "--video", help="path to the video file")
+ap.add_argument("-a", "--min-area", type=int, default=500, help="minimum area size")
+args = vars(ap.parse_args())
+ 
+# 如果video参数为None，那么我们从摄像头读取数据
+if args.get("video", None) is None:
+    camera = cv2.VideoCapture(0)
+    time.sleep(0.25)
+ 
+# 否则我们读取一个视频文件
+else:
+    camera = cv2.VideoCapture(args["video"])
+ 
+# 初始化视频流的第一帧
+firstFrame = None
+
+# 遍历视频的每一帧
+while True:
+    # 获取当前帧并初始化occupied/unoccupied文本
+    (grabbed, frame) = camera.read()
+    text = "Unoccupied"
+ 
+    # 如果不能抓取到一帧，说明我们到了视频的结尾
+    if not grabbed:
+        break
+ 
+    # 调整该帧的大小，转换为灰阶图像并且对其进行高斯模糊
+    frame = imutils.resize(frame, width=500)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.GaussianBlur(gray, (21, 21), 0)
+ 
+    # 如果第一帧是None，对其进行初始化
+    if firstFrame is None:
+        firstFrame = gray
+        continue

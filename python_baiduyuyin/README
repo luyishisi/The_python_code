@@ -1,0 +1,5 @@
+本代码使用方式如下：
+首先运行luyin.py在打开的gui界面中点击按钮，将会录音十秒种。
+保存录音文件为1.wav
+在运行baiuduyuyinshibie.py
+有key部分需要修改，请务必注意

@@ -1,0 +1,14 @@
+1：相关具体实现的博文是：
+http://urlteam.org/2015/12/%E5%AD%A6%E4%B9%A0-%E7%94%A8-python-%E5%92%8C-opencv-%E6%A3%80%E6%B5%8B%E5%92%8C%E8%B7%9F%E8%B8%AA%E8%BF%90%E5%8A%A8%E5%AF%B9%E8%B1%A1/#more-464
+
+2：依赖的库之中imutils不好安装，提供安装源码
+请pull下imutils文件夹，进入该文件夹，运行
+sudo python setup.py install
+
+3：运行请执行
+
+python 1.py
+
+4：检测视频流请执行
+python motion_detector.py —video videos/example_01.mp4
+
