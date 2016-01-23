@@ -10,7 +10,10 @@ class weather(object):
     weather_uri = "http://apistore.baidu.com/microservice/weather?cityid="
     # 主处理逻辑
     def mainHandle(self):
-        city_name = input("输入你要查询的天气：")
+        #city_name = input("输入你要查询的天气：")
+        fileHandle = open ( 'test.txt', 'r' ) 
+        city_name = fileHandle.read() 
+        fileHandle.close() 
         uri = self.code_uri + urllib.parse.quote(city_name)
         #获取该城市天气情况的网址
         print("查询中请等待")
