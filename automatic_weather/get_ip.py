@@ -2,8 +2,6 @@
 
 # -*- coding: UTF-8 -*-
 
-
-
 import urllib2, httplib
 from BeautifulSoup import BeautifulSoup
 
@@ -45,8 +43,24 @@ def getIpAddr():
         addrEn[n] = addrEn[n].strip()
         print addrEn[n], # 逗号是为了print后不换行
 
-    print
-    #print [ip, addr, addrEn]
+    #进一步化 浙江省杭州市---》杭州
+    name = addr
+    if name.find(u"省") !=-1:# 包含'省'
+        #print u'有省'
+        name=name.split(u'省')[1]
+    if name.find(u"市") != -1:#包含‘市’
+        #print u'有市'
+      me = addr
+    if name.find(u"省") !=-1:# 包含'省'
+        #print u'有省'
+        name=name.split(u'省')[1]
+    if name.find(u"市") != -1:#包含‘市’
+        #print u'有市'
+        name=name.split(u'市')[0]
+    print (name)
+    fileHandle = open ( 'test.txt', 'w' )
+    fileHandle.write ( name )
+    fileHandle.close()
 
 
 if __name__ == '__main__':
