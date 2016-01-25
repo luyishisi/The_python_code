@@ -12,7 +12,7 @@ else:
 # kernel.learn("std-startup.xml")
 # kernel.respond("load aiml pattern")
 
-print "rebot say: hello, you can talk to me! Just tell me ~"
+print ("rebot say: hello, you can talk to me! Just tell me ~")
 while True:
     message = raw_input("I say: ")
     if message == "quit":
@@ -20,7 +20,7 @@ while True:
     elif message == "save":
         kernel.saveBrain("rebot_brain.brn")
     elif message == "ch":
-        print "rebot say: Cherry! You find me!How did you know my creator??"
+        print ("rebot say: Cherry! You find me!How did you know my creator??")
     else:
         bot_response = kernel.respond(message)
-        print "robot say: %s" % bot_response
+        print ("robot say: %s" % bot_response)
