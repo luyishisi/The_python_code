@@ -12,8 +12,11 @@ else:
 # kernel.learn("std-startup.xml")
 # kernel.respond("load aiml pattern")
 print("begin game")
-a = "http://tsn.baidu.com/text2audio?tex=hello, you can talk to me! just tell me&lan=zh&per=0&pit=5&spd=2&cuid=7519663&ctp=1&tok=24.91b892cbba2c73d07f9fba69182b7960.2592000.1456136364.282335-7519663&qq-pf-to=pcqq.c2c"     
-subprocess.call(["mpg123",a])
+subprocess.PIPE
+a = "http://tsn.baidu.com/text2audio?tex=hello, you can talk to me! just tell me&lan=zh&per=0&pit=5&spd=4&cuid=7519663&ctp=1&tok=24.91b892cbba2c73d07f9fba69182b7960.2592000.1456136364.282335-7519663&qq-pf-to=pcqq.c2c"     
+p = subprocess.Popen(["mpg123",a])
+print (p.pid)
+p.wait()
 rebot = "rebot say: hello, you can talk to me! Just tell me "
 print (rebot)
 while True:
