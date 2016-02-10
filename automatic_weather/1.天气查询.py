@@ -36,6 +36,9 @@ class weather(object):
 
                 print(output)
                 
+                fileHandle = open ( 'weather.txt', 'r' ) 
+                begin = fileHandle.read()
+                print(begin)
                 fileHandle = open ( 'weather.txt', 'w' ) 
                 fileHandle.write(output) 
                 fileHandle.close()
