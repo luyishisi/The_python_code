@@ -1,0 +1,11 @@
+str = input()
+l = len(str)
+for i in range(l):
+    print(str[i],end=" ")
+    if (str[i] == '+'):
+        break
+print (i)
+a = int(str[:i:])
+b = int(str[i+1::])
+print (a+b)
+
