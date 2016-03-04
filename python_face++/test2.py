@@ -1,5 +1,4 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
+#coding:utf-8
 # $File: hello.py
 
 API_KEY = '187aa2ee8fc784972b7302f3b31becab'
@@ -30,6 +29,13 @@ api = API(API_KEY, API_SECRET)
 # 人名及其脸部图片
 #IMAGE_DIR = 'http://www.urlteam.org/wp-content/uploads/2016/02/3.jpg'
 #facepp.File('3.jpg') 
+import os
+path=r'./picture'
+fns=[os.path.join(root,fn) for root,dirs,files in os.walk(path) for fn in files]
+for f in fns:
+    print(f)
+    
+print(len(fns))
 PERSONS = [
     ('yaxin', facepp.File('picture/yaxin/1.jpg') ),
     ('yaxin', facepp.File('picture/yaxin/2.jpg') ),
@@ -41,7 +47,6 @@ PERSONS = [
     ('qidao', facepp.File('picture/qidao/3.jpg') ),
 ]
 TARGET_IMAGE = facepp.File('picture/xuna/3.jpg')# IMAGE_DIR 
-
 # 步骤1：检测出三张输入图片中的Face，找出图片中Face的位置及属性
 
 FACES = {name: api.detection.detect(img = url)
@@ -56,7 +61,6 @@ for name, face in FACES.iteritems():
             person_name = name, face_id = face['face'][0]['face_id'])
     print_result('create person {}'.format(name), rst)
 
-# Step 3: create a new group and add those persons in it
 # 步骤3：.创建Group，将之前创建的Person加入这个Group
 rst = api.group.create(group_name = 'test')
 print_result('create group', rst)
@@ -67,12 +71,10 @@ print_result('add these persons to group', rst)
 # 步骤4：训练模型
 rst = api.train.identify(group_name = 'test')
 print_result('train', rst)
-# wait for training to complete
 # 等待训练完成
 rst = api.wait_async(rst['session_id'])
 print_result('wait async', rst)
 
-# Step 5: recognize face in a new image
 # 步骤5：识别新图中的Face
 rst = api.recognition.identify(group_name = 'test', img = TARGET_IMAGE)
 print_result('recognition result', rst)
@@ -80,14 +82,7 @@ print '=' * 60
 print 'The person with highest confidence:', \
         rst['face'][0]['candidate'][0]['person_name']
 
-# Finally, delete the persons and group because they are no longer needed
 # 最终，删除无用的person和group
 api.group.delete(group_name = 'test')
 api.person.delete(person_name = FACES.iterkeys())
 
-# Congratulations! You have finished this tutorial, and you can continue
-# reading our API document and start writing your own App using Face++ API!
-# Enjoy :)
-# 恭喜！您已经完成了本教程，可以继续阅读我们的API文档并利用Face++ API开始写您自
-# 己的App了！
-# 旅途愉快 :)

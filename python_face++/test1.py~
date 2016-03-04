@@ -2,9 +2,17 @@
 # -*- coding: utf-8 -*-
 # $File: hello.py
 
+# In this tutorial, you will learn how to call Face ++ APIs and implement a
+# simple App which could recognize a face image in 3 candidates.
+# 在本教程中，您将了解到Face ++ API的基本调用方法，并实现一个简单的App，用以在3
+# 张备选人脸图片中识别一个新的人脸图片。
+
+# You need to register your App first, and enter you API key/secret.
+# 您需要先注册一个App，并将得到的API key和API secret写在这里。
 API_KEY = '187aa2ee8fc784972b7302f3b31becab'
 API_SECRET = 'F1czaFXaRJ5VzRcdVNZppUwJpDg4zjUY'
 
+# Import system libraries and define helper functions
 # 导入系统库并定义辅助函数
 import time
 from pprint import pformat
@@ -21,27 +29,24 @@ def print_result(hint, result):
     result = encode(result)
     print '\n'.join(['  ' + i for i in pformat(result, width = 75).split('\n')])
 
-# 首先，导入SDK中的API类,还有本地文件读取所需要的ｆａｃｅｐｐ类
+# First import the API class from the SDK
+# 首先，导入SDK中的API类
 from facepp import API
-import facepp
 
 api = API(API_KEY, API_SECRET)
-#face = api.detection.detect(img = facepp.File('3.jpg'))
-# 人名及其脸部图片
-#IMAGE_DIR = 'http://www.urlteam.org/wp-content/uploads/2016/02/3.jpg'
-#facepp.File('3.jpg') 
-PERSONS = [
-    ('yaxin', facepp.File('picture/yaxin/1.jpg') ),
-    ('yaxin', facepp.File('picture/yaxin/2.jpg') ),
-    ('xuna', facepp.File('picture/xuna/1.jpg') ),
-    ('xuna', facepp.File('picture/xuna/2.jpg') ),
-    ('luyi', facepp.File('picture/luyi/1.jpg') ),
-    ('qidao', facepp.File('picture/qidao/1.jpg') ),
-    ('qidao', facepp.File('picture/qidao/2.jpg') ),
-    ('qidao', facepp.File('picture/qidao/3.jpg') ),
-]
-TARGET_IMAGE = facepp.File('picture/xuna/3.jpg')# IMAGE_DIR 
 
+# Here are the person names and their face images
+# 人名及其脸部图片
+IMAGE_DIR = 'http://www.urlteam.org/wp-content/uploads/2016/02/3.jpg'
+
+r =  facepp.File('3.jpg')
+PERSONS = [
+    ('Jim Parsons', r),
+]
+TARGET_IMAGE = IMAGE_DIR 
+
+# Step 1: Detect faces in the 3 pictures and find out their positions and
+# attributes
 # 步骤1：检测出三张输入图片中的Face，找出图片中Face的位置及属性
 
 FACES = {name: api.detection.detect(img = url)
@@ -50,6 +55,7 @@ FACES = {name: api.detection.detect(img = url)
 for name, face in FACES.iteritems():
     print_result(name, face)
 
+# Step 2: create persons using the face_id
 # 步骤2：引用face_id，创建新的person
 for name, face in FACES.iteritems():
     rst = api.person.create(

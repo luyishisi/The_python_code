@@ -41,7 +41,7 @@ PERSONS = [
     ('qidao', facepp.File('picture/qidao/3.jpg') ),
 ]
 TARGET_IMAGE = facepp.File('picture/xuna/3.jpg')# IMAGE_DIR 
-
+'''
 # 步骤1：检测出三张输入图片中的Face，找出图片中Face的位置及属性
 
 FACES = {name: api.detection.detect(img = url)
@@ -71,7 +71,7 @@ print_result('train', rst)
 # 等待训练完成
 rst = api.wait_async(rst['session_id'])
 print_result('wait async', rst)
-
+'''
 # Step 5: recognize face in a new image
 # 步骤5：识别新图中的Face
 rst = api.recognition.identify(group_name = 'test', img = TARGET_IMAGE)
@@ -82,8 +82,8 @@ print 'The person with highest confidence:', \
 
 # Finally, delete the persons and group because they are no longer needed
 # 最终，删除无用的person和group
-api.group.delete(group_name = 'test')
-api.person.delete(person_name = FACES.iterkeys())
+#api.group.delete(group_name = 'test')
+#api.person.delete(person_name = FACES.iterkeys())
 
 # Congratulations! You have finished this tutorial, and you can continue
 # reading our API document and start writing your own App using Face++ API!
