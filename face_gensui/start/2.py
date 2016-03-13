@@ -2,7 +2,7 @@
 import cv2
 import cv2.cv as cv
  
-img = cv2.imread("5.jpg")
+img = cv2.imread("5.png")
  
 def detect(img, cascade):
     '''detectMultiScale函数中smallImg表示的是要检测的输入图像为smallImg，
@@ -41,7 +41,6 @@ rects = detect(gray, cascade)
 #vis为img副本
 '''
 以下文件操作部分可以删除，功能只是要读取上一次的人脸位置重心
-'''
 vis = img.copy()
 txt = str(rects)
 fileHandle = open ( 'weizhi.txt', 'r' )
@@ -61,7 +60,7 @@ print("x=",x,"y=",y,"z=",z)
 f = open('zhongxin.txt','w')
 f.write(str(x)+" "+str(y)+" "+str(z))
 f.close()
-
+'''
 #画矩形
 draw_rects(vis, rects, (0, 255, 0))
  
