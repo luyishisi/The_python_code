@@ -5,7 +5,7 @@ import sys
 if len(sys.argv) > 1:
     INTERFACE = sys.argv[1]
 else:
-    INTERFACE = 'eth0'
+    INTERFACE = 'wlan0'
 STATS = []
 print 'Interface:',INTERFACE
 
